@@ -70,7 +70,7 @@ def main(chain, start, max_iterations, delay = None):
         print("There is nothing in 'stop_at'!")
         return
     try:
-        max_iterations = float(max_iterations)
+        max_iterations = int(max_iterations)
     except ValueError:
         print(f"'{max_iterations}' is not a valid number")
         return
