@@ -1,4 +1,12 @@
 """
+A little practice project i did for fun. Makes creating and testing markov chains easy https://en.wikipedia.org/wiki/Markov_chain 
+I was originally planning to add a way to save and load chains but decided not to.
+AI did none of the planning or coding, only a few bug fixes and setting suggestions. I am against using AI for most of a projects code.
+I think I made this pretty efficient, doing around 2660000 iterations per second on my ryzen 5 9600x with prints off. 
+
+Maybe later I will add support for multiple start points or multithread it.
+"""
+"""
 Each chain is a dictionary {} with each "node" having a key and another dictionary to itself. Something like:
 
 {
@@ -9,14 +17,6 @@ Each chain is a dictionary {} with each "node" having a key and another dictiona
 
 Inside of each nodes dictionary you make a tuple of each node it goes out to, along with weights equaling to exactly 1.
 What 'input_chain' is set to right now is an example of a chain.
-"""
-"""
-A little practice project i did for fun. Makes creating and testing markov chains easy https://en.wikipedia.org/wiki/Markov_chain 
-I was originally planning to add a way to save and load chains but decided not to.
-AI did none of the planning or coding, only a few bug fixes and setting suggestions. I am against using AI for most of a projects code.
-I think I made this pretty efficient, doing around 2660000 iterations per second on my ryzen 5 9600x with prints off. 
-
-Maybe later I will add support for multiple start points or multithread it.
 """
 import random
 import time
@@ -101,11 +101,11 @@ def main(chain, start, max_iterations, delay = None):
         if delay:
             time.sleep(delay)
         if max_iterations <= iterations:
-            print("Reached max iterations")
+            print(f"Reached max iterations {max_iterations}")
             break
     for key, data in chain.items():
         print(f"{key}: {chosen_nodes.count(key)}")
-    print(f"Finished in {time.process_time()}")
+    print(f"Finished in {time.process_time()} seconds")
 
 if __name__ == "__main__":
     main(input_chain, start_node, stop_at, delay)
