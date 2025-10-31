@@ -6,6 +6,9 @@ I think I made this pretty efficient, doing around 2660000 iterations per second
 
 Maybe later I will add support for multiple start points or multithread it.
 """
+import random
+import time
+
 """
 Each chain is a dictionary {} with each "node" having a key and another dictionary to itself. Something like:
 
@@ -15,12 +18,9 @@ Each chain is a dictionary {} with each "node" having a key and another dictiona
     }
 }
 
-Inside of each nodes dictionary you make a tuple of each node it goes out to, along with weights equaling to exactly 1.
-What 'input_chain' is set to right now is an example of a chain.
+Inside of each nodes dictionary you make the key of each node it goes out to, along with weights equaling to exactly 1.
+What 'input_chain' is set to right now is an example of a chain. 'input_chain' is where you put your chain
 """
-import random
-import time
-
 input_chain = {
     "TestA": {
         "TestB": 0.5,
