@@ -99,7 +99,7 @@ def main(chain, start, max_iterations, delay = None):
 
         iterations += 1
         if delay:
-            time.sleep(delay)
+            time.sleep(float(delay))
         if max_iterations <= iterations:
             print(f"Reached max iterations {max_iterations}")
             break
